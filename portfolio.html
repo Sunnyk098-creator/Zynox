@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08060f">
+<meta name="description" content="Zynox — Developer, bot creator and digital explorer.">
+<title>Zynox — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+<style>
+:root{--bg:#08060f;--card:rgba(255,255,255,.045);--line:rgba(192,132,252,.16);--text:#ece6f7;--muted:#a79bbd;--p1:#c084fc;--p2:#a855f7;--pink:#f0abfc;--r:20px;--nav:64px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:var(--nav);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--p1);outline-offset:3px;border-radius:6px}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-2}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 80% 0%,rgba(168,85,247,.18),transparent),radial-gradient(50% 40% at 0% 100%,rgba(240,171,252,.08),transparent);pointer-events:none}
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--p2),var(--pink));z-index:100}
+
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 20px;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.nav.scrolled{background:rgba(8,6,15,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.brand{font:800 18px Orbitron,sans-serif;letter-spacing:.04em}.brand b{color:var(--p1)}
+.links{display:flex;gap:6px}
+.links a{padding:8px 14px;border-radius:99px;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s,background .2s}
+.links a:hover,.links a.active{color:#fff;background:rgba(192,132,252,.14)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:99px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-main{background:linear-gradient(135deg,var(--p2),#7c3aed);box-shadow:0 8px 28px -8px var(--p2)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 32px -6px var(--p2)}
+.btn-ig{background:linear-gradient(135deg,#f58529,#dd2a7b 55%,#8134af);box-shadow:0 8px 28px -10px #dd2a7b}
+.btn-ig:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);background:var(--card)}.btn-ghost:hover{background:rgba(192,132,252,.12)}
+.nav .btn{padding:8px 18px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font-size:20px;cursor:pointer}
+
+main{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:110px 0}
+.head{margin-bottom:44px;max-width:560px}
+h1,h2,h3{font-family:Orbitron,sans-serif;line-height:1.15}
+h2{font-size:clamp(26px,4.5vw,40px);font-weight:800}
+.head p{color:var(--muted);margin-top:12px}
+.grad{background:linear-gradient(120deg,var(--p1),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.hero{min-height:100svh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:48px;padding-top:calc(var(--nav) + 24px);padding-bottom:48px}
+.hero h1{font-size:clamp(44px,9vw,96px);font-weight:800;letter-spacing:-.01em}
+.role{margin:18px 0 14px;font-size:clamp(16px,2.4vw,20px);color:var(--p1);min-height:1.6em;font-weight:500}
+.caret{display:inline-block;width:2px;height:1em;background:var(--p1);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--muted);max-width:480px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.id-card{border:1px solid var(--line);background:var(--card);border-radius:28px;padding:28px;text-align:center;backdrop-filter:blur(8px)}
+.dp{width:min(220px,60%);aspect-ratio:1;margin:0 auto 20px;border-radius:50%;padding:4px;background:conic-gradient(from 180deg,var(--p2),var(--pink),var(--p2))}
+.dp img,.dp .fb{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#120d20;display:grid;place-items:center;font:800 64px Orbitron,sans-serif;color:var(--p1)}
+.id-card h3{font-size:20px}.id-card p{color:var(--muted);font-size:14px;margin-top:4px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
+.status i{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%,100%{box-shadow:0 0 0 8px transparent}}
+
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:28px;transition:border-color .3s,background .3s;overflow:hidden}
+.card:hover{border-color:rgba(192,132,252,.45);background:rgba(192,132,252,.07)}
+.ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(168,85,247,.16);color:var(--p1);font-size:20px;margin-bottom:18px}
+.card h3{font-size:17px;margin-bottom:8px}.card p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span{font-size:12px;padding:4px 12px;border-radius:99px;border:1px solid var(--line);color:var(--pink)}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+blockquote{margin-top:18px;padding-left:16px;border-left:2px solid var(--p2);color:var(--pink);font-style:italic}
+.facts{display:grid;gap:18px}.facts .card{padding:22px}.facts small{color:var(--muted);font-size:12px}.facts h3{margin:2px 0}
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj .card{padding:0}
+.pv{height:120px;display:grid;place-items:center;font:800 28px Orbitron,sans-serif;background:linear-gradient(135deg,rgba(168,85,247,.35),rgba(240,171,252,.08))}
+.pb{padding:22px}.pb em{font-style:normal;font-size:12px;color:#4ade80;display:block;margin-bottom:8px}
+
+/* DM section */
+.dm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:720px;margin:0 auto}
+.dm-card{text-align:center;padding:28px 24px}
+.dm-card h3{font-size:18px;margin-bottom:4px}
+.dm-user{color:var(--muted);font-size:14px;margin-bottom:18px;word-break:break-all}
+.qr{width:min(200px,100%);aspect-ratio:1;margin:0 auto 20px;background:#fff;border-radius:16px;padding:12px;display:grid;place-items:center}
+.qr svg{width:100%;height:100%;display:block}
+.dm-card .btn{width:100%}
+.dm-link{display:block;margin-top:12px;font-size:13px;color:var(--pink);word-break:break-all}
+.dm-note{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
+[hidden]{display:none!important}
+footer{text-align:center;padding:32px 20px calc(32px + env(safe-area-inset-bottom));color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+/* scroll-linked elements: JS drives opacity/transform */
+.reveal{will-change:transform,opacity}
+html:not(.js) .reveal{opacity:1}
+
+@media(max-width:860px){
+  section{padding:72px 0}
+  .hero{grid-template-columns:1fr;text-align:center;gap:36px;min-height:auto;padding-top:calc(var(--nav) + 36px)}
+  .lead{margin:0 auto}.actions{justify-content:center}
+  .id-card{max-width:340px;margin:0 auto;width:100%}
+  .about,.proj{grid-template-columns:1fr}
+  .burger{display:block}.nav .btn{display:none}
+  .links{position:absolute;top:calc(var(--nav) - 4px);left:16px;right:16px;flex-direction:column;padding:10px;background:rgba(14,10,24,.96);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s}
+  .links.open{opacity:1;visibility:visible;transform:none}
+  .links a{padding:14px 16px;font-size:16px}
+}
+@media(max-width:520px){
+  main{padding:0 16px}.grid2{gap:12px}.card{padding:20px 16px}
+  .card h3{font-size:15px}.card p{font-size:13.5px}
+  .ic{width:38px;height:38px;margin-bottom:12px}.tags span{font-size:11px;padding:3px 9px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#home">ZYNOX<b>.</b></a>
+  <div class="links" id="links">
+    <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#world">What I build</a>
+    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#dm">DM</a>
+  </div>
+  <a class="btn btn-main" href="#dm">Contact</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links">☰</button>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div id="heroText">
+      <h1 class="reveal" data-hero>Zynox<span class="grad">.</span></h1>
+      <div class="role reveal" data-hero><span id="role">Telegram Bot Developer</span><span class="caret"></span></div>
+      <p class="lead reveal" data-hero>Main web apps, Telegram bots, real-time backend aur 2D web games banata hoon.</p>
+      <div class="actions reveal" data-hero>
+        <a class="btn btn-main" href="#projects">See my work</a>
+        <a class="btn btn-ghost" href="#dm">Send a DM</a>
+      </div>
+    </div>
+    <div class="id-card reveal" id="idcard" data-hero>
+      <div class="dp"><img src="dp.png" alt="Zynox" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fb',textContent:'Z'}))"></div>
+      <h3>Zynox</h3>
+      <p>Developer · Creator · Builder</p>
+      <span class="status"><i></i>Available for projects</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="head reveal"><h2>The person behind <span class="grad">the code</span></h2><p>Tech enthusiast, learner aur creative builder.</p></div>
+    <div class="about">
+      <article class="card reveal">
+        <h3>Curiosity first, execution always</h3>
+        <p style="margin-top:10px">Mera goal complex logic ko clean UI ke saath merge karke fast apps banana hai. Main Termux, Vercel aur Firebase par roz naye experiments deploy karta hoon.</p>
+        <blockquote>Silent moves. Loud impact.</blockquote>
+      </article>
+      <div class="facts">
+        <article class="card reveal"><small>Alias</small><h3>Zynox</h3><p>Developer &amp; creator</p></article>
+        <article class="card reveal"><small>Current tech</small><h3>JavaScript &amp; Python</h3><p>APIs · WebSockets</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="world">
+    <div class="head reveal"><h2>What I build in <span class="grad">my world</span></h2><p>Jo cheezein main roz explore aur create karta hoon.</p></div>
+    <div class="grid2">
+      <article class="card reveal"><div class="ic">⚡</div><h3>Telegram bots</h3><p>Telethon, Pyrogram aur Node.js se auto-reply, broadcast aur payment-verify bots.</p><div class="tags"><span>Telethon</span><span>Webhooks</span></div></article>
+      <article class="card reveal"><div class="ic">💬</div><h3>Real-time apps</h3><p>Chat rooms, auth aur dashboards jo Firebase ya Supabase se live sync hote hain.</p><div class="tags"><span>Firebase</span><span>Supabase</span></div></article>
+      <article class="card reveal"><div class="ic">🎮</div><h3>Web games</h3><p>HTML5 Canvas aur Three.js — sprite animation, survival logic, mini physics.</p><div class="tags"><span>Canvas</span><span>Three.js</span></div></article>
+      <article class="card reveal"><div class="ic">🎨</div><h3>Digital art</h3><p>Avatars, logos, tile-sets aur custom UI assets.</p><div class="tags"><span>Pixel art</span><span>Vector</span></div></article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="head reveal"><h2>Tech stack &amp; <span class="grad">skills</span></h2><p>Jo tools main regularly use karta hoon.</p></div>
+    <div class="grid2">
+      <article class="card reveal"><div class="ic">◧</div><h3>Frontend</h3><p>Semantic HTML, responsive CSS aur smooth JS interactions.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>ES6+</span></div></article>
+      <article class="card reveal"><div class="ic">⌁</div><h3>Backend &amp; bots</h3><p>Event-driven scripts, APIs aur task automation.</p><div class="tags"><span>Python</span><span>Node.js</span><span>Express</span></div></article>
+      <article class="card reveal"><div class="ic">☁</div><h3>Cloud &amp; DB</h3><p>Serverless hosting aur instant data sync.</p><div class="tags"><span>Firebase</span><span>Vercel</span><span>GitHub</span></div></article>
+      <article class="card reveal"><div class="ic">▣</div><h3>Canvas &amp; logic</h3><p>Game loops, rendering aur sprite animation.</p><div class="tags"><span>2D Canvas</span><span>Sprites</span></div></article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="head reveal"><h2>Featured <span class="grad">projects</span></h2><p>Recent experiments aur live deployments.</p></div>
+    <div class="proj">
+      <article class="card reveal"><div class="pv">CX/</div><div class="pb"><em>● Active</em><h3>Chatrix</h3><p>Real-time chat app with auth, profiles aur story feeds.</p><div class="tags"><span>Firebase</span><span>JS</span></div></div></article>
+      <article class="card reveal"><div class="pv">OO+</div><div class="pb"><em style="color:var(--p1)">● Prototype</em><h3>Orbit Office</h3><p>AI virtual workspace dashboard, single-file responsive code.</p><div class="tags"><span>Vanilla JS</span><span>CSS Grid</span></div></div></article>
+      <article class="card reveal"><div class="pv">BOT_</div><div class="pb"><em>● Running</em><h3>Telegram Bot Engine</h3><p>Userbot suite: auto replies, broadcast routing, webhook sync.</p><div class="tags"><span>Python</span><span>Telethon</span></div></div></article>
+    </div>
+  </section>
+
+  <section id="dm">
+    <div class="head reveal" style="margin-inline:auto;text-align:center"><h2>Send me <span class="grad">a DM</span></h2><p>QR scan karo ya button dabao. Seedha chat khulegi.</p></div>
+    <div class="dm-grid" id="dmGrid"></div>
+    <p class="dm-note" id="dmNote" hidden></p>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Zynox — Silent moves. Loud impact.</footer>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- Mobile menu ---------- */
+  const burger = $('#burger'), links = $('#links');
+  const setMenu = o => { links.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); burger.textContent = o ? '✕' : '☰'; };
+  burger.addEventListener('click', e => { e.stopPropagation(); setMenu(!links.classList.contains('open')); });
+  links.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', e => { if (!$('#nav').contains(e.target)) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---------- Smooth anchor scroll (eased) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t || reduce) return;
+    e.preventDefault();
+    const from = scrollY, to = t.id === 'home' ? 0 : t.getBoundingClientRect().top + from - 56, dist = to - from, dur = clamp(Math.abs(dist) / 2.2, 500, 1400), t0 = performance.now();
+    const step = n => { const p = clamp((n - t0) / dur), e = p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2; scrollTo(0, from + dist * e); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+    history.replaceState(null, '', a.getAttribute('href'));
+  }));
+
+  /* ---------- Typing ---------- */
+  const role = $('#role'), words = ['Telegram Bot Developer', 'Fullstack Web Creator', 'Real-time APIs', 'Canvas 2D Game Logic'];
+  if (!reduce) {
+    let w = 0, c = 0, del = false;
+    const tick = () => {
+      const t = words[w]; c += del ? -1 : 1; role.textContent = t.slice(0, c);
+      let d = del ? 35 : 75;
+      if (!del && c === t.length) { d = 1800; del = true; } else if (del && c === 0) { del = false; w = (w + 1) % words.length; d = 400; }
+      setTimeout(tick, d);
+    };
+    setTimeout(tick, 800);
+  }
+
+  /* ---------- Scroll-linked animation (one rAF loop, eased) ---------- */
+  const bar = $('#progress'), nav = $('#nav');
+  const items = [...document.querySelectorAll('.reveal')].map(el => ({ el, p: reduce ? 1 : 0, hero: el.hasAttribute('data-hero'), card: el.classList.contains('card') }));
+  let warp = 0, lastY = scrollY, sm = scrollY, vh = innerHeight;
+
+  const frame = () => {
+    const y = scrollY, max = document.documentElement.scrollHeight - vh;
+    sm += (y - sm) * .12;                       /* smoothed scroll for parallax */
+    warp = Math.min(warp + Math.abs(y - lastY) * .1, 12); lastY = y;
+    bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    nav.classList.toggle('scrolled', y > 30);
+
+    if (!reduce) for (const it of items) {
+      const r = it.el.getBoundingClientRect();
+      let target;
+      if (it.hero) {                            /* hero: fades, shrinks and drifts as you scroll away */
+        const o = clamp(y / (vh * .7));
+        target = 1; it.out = o;
+        const s = 1 - o * .12, ty = -o * 70;
+        it.el.style.opacity = (1 - o).toFixed(3);
+        it.el.style.transform = `translate3d(0,${ty}px,0) scale(${s})`;
+        continue;
+      }
+      target = clamp((vh * .96 - r.top) / (vh * .42));   /* 0 below fold → 1 once 42% in */
+      it.p += (target - it.p) * .14;                       /* easing */
+      const e = 1 - Math.pow(1 - it.p, 3), k = 1 - e;
+      const side = it.card ? (Math.sign((r.left + r.width / 2) - innerWidth / 2) || 0) : 0;
+      it.el.style.opacity = e.toFixed(3);
+      it.el.style.transform = `translate3d(${side * k * 40}px,${k * 80}px,0) scale(${.9 + .1 * e}) rotate(${side * k * 2}deg)`;
+    }
+
+    /* section-level depth: headings drift slower than content */
+    document.querySelectorAll('.head').forEach(h => {
+      const r = h.getBoundingClientRect(), c = (r.top + r.height / 2 - vh / 2) / vh;
+      if (!reduce) h.style.translate = `0 ${(-c * 28).toFixed(1)}px`;
+    });
+    requestAnimationFrame(frame);
+  };
+  addEventListener('resize', () => vh = innerHeight);
+  frame();
+
+  /* ---------- Starfield ---------- */
+  const cv = $('#stars'), ctx = cv.getContext('2d');
+  let W, H, stars = [], raf, running = false;
+  const spawn = init => ({ x: (Math.random() - .5) * W * 2, y: (Math.random() - .5) * H * 2, z: init ? Math.random() * W : W, pz: W, r: Math.random() * 1.2 + .4, c: Math.random() > .35 ? '#d8b4fe' : '#c084fc' });
+  const initStars = () => {
+    const dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    stars = Array.from({ length: Math.min(Math.floor(W * H / 6000), 220) }, () => spawn(true));
+  };
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H); warp *= .93;
+    const sp = .5 + warp, cx = W / 2, cy = H / 2;
+    for (const s of stars) {
+      s.pz = s.z; s.z -= sp;
+      if (s.z <= 1) { Object.assign(s, spawn(false)); continue; }
+      const k = 250 / s.z, x = s.x * k + cx, y = s.y * k + cy;
+      if (x < 0 || x > W || y < 0 || y > H) { if (s.z < W * .5) Object.assign(s, spawn(false)); continue; }
+      const d = 1 - s.z / W; ctx.globalAlpha = Math.min(1, d * 1.2 + .1); ctx.strokeStyle = ctx.fillStyle = s.c;
+      if (warp > 1.5) { const pk = 250 / s.pz; ctx.lineWidth = s.r * d * 1.4 + .3; ctx.beginPath(); ctx.moveTo(s.x * pk + cx, s.y * pk + cy); ctx.lineTo(x, y); ctx.stroke(); }
+      else { ctx.beginPath(); ctx.arc(x, y, Math.max(.5, d * s.r * 1.3), 0, 6.283); ctx.fill(); }
+    }
+    ctx.globalAlpha = 1; raf = requestAnimationFrame(draw);
+  };
+  const start = () => { if (!running && !reduce) { running = true; raf = requestAnimationFrame(draw); } };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+  initStars(); start();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(initStars, 200); });
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+  /* ---------- DM section: reads dm.txt, builds QR + buttons ---------- */
+  const grid = $('#dmGrid'), note = $('#dmNote');
+  const PLATFORMS = {
+    telegram:  { label: 'Telegram',  base: 'https://t.me/',              cls: 'btn-main', cta: 'Open Telegram' },
+    instagram: { label: 'Instagram', base: 'https://www.instagram.com/', cls: 'btn-ig',   cta: 'Open Instagram' }
+  };
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  const parse = txt => {
+    const out = {};
+    txt.split(/\r?\n/).forEach(line => {
+      line = line.trim();
+      if (!line || line.startsWith('#')) return;
+      const i = line.indexOf('='); if (i < 1) return;
+      out[line.slice(0, i).trim().toLowerCase()] = line.slice(i + 1).trim();
+    });
+    return out;
+  };
+  const toLink = (key, v) => {
+    if (!v) return null;
+    if (/^https?:\/\//i.test(v)) return { url: v, user: v.replace(/^https?:\/\/(www\.)?/i, '').replace(/[?#].*$/, '').split('/').filter(Boolean).slice(1).join('/') || v };
+    const user = v.replace(/^@/, '').replace(/^(t\.me|instagram\.com)\//i, '').trim();
+    return user ? { url: PLATFORMS[key].base + encodeURIComponent(user), user: '@' + user } : null;
+  };
+  const makeQR = url => {
+    if (typeof qrcode !== 'function') return '';
+    const q = qrcode(0, 'M'); q.addData(url); q.make();
+    return q.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  };
+
+  let last = null;
+  const render = txt => {
+    if (txt === last) return; last = txt;
+    const cfg = parse(txt); let html = '';
+    for (const key in PLATFORMS) {
+      const d = toLink(key, cfg[key]); if (!d) continue;
+      const p = PLATFORMS[key], qr = makeQR(d.url);
+      html += `<article class="card dm-card"><h3>${p.label}</h3><p class="dm-user">${esc(d.user)}</p>` +
+        (qr ? `<div class="qr" role="img" aria-label="${p.label} QR code">${qr}</div>` : '') +
+        `<a class="btn ${p.cls}" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${p.cta}</a>` +
+        `<a class="dm-link" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.url.replace(/^https?:\/\//, ''))}</a></article>`;
+    }
+    grid.innerHTML = html;
+    note.hidden = !!html;
+    if (!html) note.textContent = 'dm.txt mein telegram= ya instagram= ke aage username ya link likho.';
+  };
+
+  const load = () => fetch('dm.txt?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw 0; return r.text(); })
+    .then(render)
+    .catch(() => { if (last === null) { note.hidden = false; note.textContent = 'dm.txt load nahi hui. Isse portfolio.html ke saath ek hi folder mein rakho aur http(s) se kholo (Vercel/GitHub Pages/local server).'; } });
+  window.addEventListener('load', load);
+  setInterval(load, 15000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>

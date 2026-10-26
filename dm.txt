@@ -1,0 +1,6 @@
+# DM settings - sirf yahan edit karo, page apne aap update ho jayega.
+# Username (@ ke saath ya bina) ya poora link, dono chalenge.
+# Kisi ko hide karna ho to us line ko khali chhod do.
+
+telegram=SyroxZen
+instagram=zynox_dev
